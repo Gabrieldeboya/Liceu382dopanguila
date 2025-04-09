@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola Liceu 382 do Panguila</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #1a5276;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            background-color: #2874a6;
+            padding: 1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #aed6f1;
+        }
+        
+        .hero {
+            background-color: #3498db;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #3498db;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-3px);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1a5276;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #3498db;
+        }
+        
+        .sobre {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .cursos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .curso {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .curso:hover {
+            transform: translateY(-5px);
+        }
+        
+        .curso h3 {
+            color: #1a5276;
+            margin-bottom: 1rem;
+        }
+        
+        .placeholder-img {
+            background-color: #aed6f1;
+            height: 200px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a5276;
+            font-weight: bold;
+        }
+        
+        .estrutura {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .estrutura-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .estrutura-item h3 {
+            color: #1a5276;
+            margin-bottom: 1rem;
+        }
+        
+        .noticias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .noticia {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .noticia-conteudo {
+            padding: 1.5rem;
+        }
+        
+        .noticia h3 {
+            color: #1a5276;
+            margin-bottom: 0.5rem;
+        }
+        
+        .data {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .contato {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .contato-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contato-item {
+            text-align: center;
+        }
+        
+        .contato-item h3 {
+            color: #1a5276;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: #1a5276;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Escola Liceu 382 do Panguila</div>
+        <p>Educando para transformar o futuro</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#estrutura">Estrutura</a></li>
+            <li><a href="#noticias">Notícias</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <h2>Bem-vindo à Escola Liceu 382 do Panguila</h2>
+        <p>Formando cidadãos conscientes e preparados para os desafios do século XXI através de uma educação de qualidade e valores sólidos.</p>
+        <a href="#contato" class="btn">Agende uma Visita</a>
+    </section>
+    
+    <main>
+        <section id="sobre" class="sobre">
+            <h2 class="section-title">Sobre Nossa Escola</h2>
+            <p>A Escola Liceu 382 do Panguila foi fundada em 2009 com o compromisso de oferecer educação de excelência para Jovens e Adultos. Nossa missão é desenvolver não apenas o conhecimento acadêmico, mas também habilidades socioemocionais essenciais para a formação integral dos alunos.</p>
+            <p>Com uma equipe de professores altamente qualificados e uma metodologia de ensino inovadora, buscamos despertar nos estudantes o amor pelo conhecimento e prepará-los para serem protagonistas de suas histórias.</p>
+            <p>Nossos valores incluem:</p>
+            <ul style="margin-left: 2rem;">
+                <li>Respeito à diversidade</li>
+                <li>Excelência acadêmica</li>
+                <li>Responsabilidade social</li>
+                <li>Criatividade e inovação</li>
+                <li>Compromisso com a sustentabilidade</li>
+            </ul>
+        </section>
+        
+        <section id="cursos">
+            <h2 class="section-title">Nossos Cursos</h2>
+            <div class="cursos">
+                <div class="curso">
+                    <div class="https://ibb.co/WNP7Pt01">Ciências Econômicas e Jurídicas</div>
+                    <h3>Ciências Econômicas e Jurídicas</h3>
+                    <p>Ciências Económicas e Jurídicas
+Esse curso mistura conhecimentos de economia e direito. Você vai aprender sobre como funcionam os mercados, o dinheiro, os bancos, e também sobre leis, justiça e o sistema jurídico. É ideal pra quem quer trabalhar como advogado, economista, contador, administrador ou em áreas públicas ligadas à política e finanças.</p>
+                </div>
+                
+                <div class="curso">
+                    <div class="https://ibb.co/WNP7Pt01">Ciências Físicas e Biológicas</div>
+                    <h3>Ciências Físicas e Biológicas</h3>
+                    <p>Ciências Físicas e Biológicas
+Foca nas ciências naturais, tanto da vida (biológicas) quanto da matéria (físicas). Aqui você estuda tudo que envolve o corpo humano, plantas, animais, ecossistemas, mas também física, química e matemática. É ótimo pra quem pensa em seguir carreira em medicina, enfermagem, engenharia, biologia, física ou química.</p>
+                </div>
+                
+                <div class="curso">
+                    <div class="https://ibb.co/WNP7Pt01">Ciências Humanas</div>
+                    <h3>Ciências Humanas</h3>
+                    <p>Ciências Humanas
+Esse curso estuda o comportamento humano, a sociedade, a história e a cultura. Você vai entender como as pessoas vivem, pensam, se organizam e se expressam. Ideal pra quem gosta de filosofia, sociologia, história, geografia e quer seguir áreas como ensino, psicologia, jornalismo, serviço social ou antropologia.</p>
+                </div>
+                
+                <div class="sobre">
+                    <div class="https://ibb.co/CKR0wfBQ">Desenvolvidor</div>
+                    <h3>Desenvolvidor</h3>
+                    <p>Nome: Gabriel Carvalho</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="estrutura">
+            <h2 class="section-title">Nossa Estrutura</h2>
+            <div class="estrutura">
+                <div class="estrutura-item">
+                    <div class="https://ibb.co/CK6FrTj0">Laboratórios</div>
+                    <h3>Laboratórios</h3>
+                    <p>Laboratórios de ciências, informática e robótica equipados com tecnologia de ponta para aprendizagem prática.</p>
+                </div>
+                
+                <div class="estrutura-item">
+                    <div class="https://ibb.co/RphXQH58">Biblioteca</div>
+                    <h3>Biblioteca</h3>
+                    <p>Espaço acolhedor com um vasto acervo de livros, periódicos e recursos multimídia para pesquisa e leitura.</p>
+                </div>
+                
+                <div class="estrutura-item">
+                    <div class="https://ibb.co/V0cGcj4Z">Quadras Esportivas</div>
+                    <h3>Quadras Esportivas</h3>
+                    <p>Quadras esportivas cobertas e campos para a prática de diversos esportes e atividades físicas.</p>
+                </div>
+                
+                <div class="estrutura-item">
+                    <div class="https://ibb.co/39MX16S4">Áreas de Convivência</div>
+                    <h3>Áreas de Convivência</h3>
+                    <p>Espaços de convivência arborizados e planejados para promover a interação social e o bem-estar dos alunos.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="noticias">
+            <h2 class="section-title">Últimas Notícias</h2>
+            <div class="noticias">
+                <div class="noticia">
+                    <div class="https://ibb.co/BH6T2fv2">Imagem da Notícia</div>
+                    <div class="noticia-conteudo">
+                        <span class="data">25 de Abril de 2025</span>
+                        <h3>Feira do empreendedorismo 2025</h3>
+                        <p>Nossa tradicional Feira do empreendedorismo acontecerá em Abril. Os alunos já estão desenvolvendo projetos inovadores sobre sustentabilidade.</p>
+                    </div>
+                </div>
+                
+                <div class="noticia">
+                    <div class="https://ibb.co/Qv3S1DRm">Imagem da Notícia</div>
+                    <div class="noticia-conteudo">
+                        <span class="data">03 de Abril de 2025</span>
+                        <h3>provas do 2º trimestre</h3>
+                        <p>Alunos da Escola Liceu 382 do Panguila nas provas do 2º trimestre</p>
+                    </div>
+                </div>
+                
+                <div class="noticia">
+                    <div class="https://ibb.co/nsFfgf2F">Imagem da Notícia</div>
+                    <div class="noticia-conteudo">
+                        <span class="data">05 de Agosto de 2025</span>
+                        <h3>Novas Matrículas</h3>
+                        <p>Estarão abertas as matrículas para o primeiro trimestre de 2025/26. Vagas limitadas para algumas turmas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contato" class="contato">
+            <h2 class="section-title">Entre em Contato</h2>
+            <p style="text-align: center;">Estamos à disposição para esclarecer suas dúvidas e fornecer mais informações sobre nossa escola.</p>
+            
+            <div class="contato-info">
+                <div class="contato-item">
+                    <h3>Endereço</h3>
+                    <p>Província do Bengo</p>
+                    <p>Município do Dande</p>
+                    <p>Bairro Panguila, sector 11</p>
+                </div>
+                
+                <div class="contato-item">
+                    <h3>Telefones</h3>
+                    <p>(+244) 941808137</p>
+                    <p>(+244) 958044765</p>
+                </div>
+                
+                <div class="contato-item">
+                    <h3>Email</h3>
+                    <p>liceu382dopanguila@gmail.com</p>
+                    <p>liceu382dopanguila@gmail.com</p>
+                </div>
+                
+                <div class="contato-item">
+                    <h3>Horário de Atendimento</h3>
+                    <p>Segunda a Sexta: 7h às 15h</p>
+                    <p>Sábados e Domingos fechados</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#cursos">Cursos</a>
+            <a href="#estrutura">Estrutura</a>
+            <a href="#noticias">Notícias</a>
+            <a href="#contato">Contato</a>
+        </div>
+        <p>&copy; 2025 Liceu nº 382 do Panguila. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
